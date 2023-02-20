@@ -1,0 +1,12 @@
+.box::before{
+    display: none;
+}
+
+.btn-block{
+    margin-top: 20px;
+    background-color: #039be5;
+}
+
+.example-form{
+    margin-top: 30px;
+}
