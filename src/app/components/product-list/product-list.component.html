@@ -1,19 +1,81 @@
 <!-- <header>logged in person :::</header> -->
 <div class="container">
     <div class="header">
-        Login as :: {{loggedValue}}
+        Welcome {{loggedValue}}
     </div>
     <div class="content">
-<div class="row">
-    <div class="column" style="background-color:#aaa;border-style: solid; margin-right: 30px;" *ngFor="let item of myData[0].columns">
-        <img src="assets/cof1.jpg" class="imgsrc">
-        <h2>{{item.label}}</h2>
-      <p>{{item.rate}}</p>
-    </div>
-</div></div>
-<div class="footer">
-   <p class="f1" style="text-align:center;">Kanu Priya © 2021 Copyright: MDBootstrap.com</p>
+         <div class="row">
+    <app-cart-list class="container"></app-cart-list></div>
+
+
+           <!-- <div class="column" style="background-color:#aaa;border-style: solid; margin-right: 30px;"
+                *ngFor="let item of myData[0].columns">
+                <img src="assets/cof1.jpg" class="imgsrc">
+                <h2>{{item.label}}</h2>
+                <p>{{item.rate}}</p>
+            </div>
+        </div> -->
+        <!-- <div class="column" *ngFor="let item of productList">{{item.blend_name}}</div> -->
+
+        <!-- <div class="container"> -->
+            <h2>Products</h2>
+            <div class="abc">
+                <div class="cards-deck row">
+                    <div class="card col-md-4" *ngFor="let product of productList;let i=index;">
+                        <div class="card-title">
+                            <h3>{{product.blend_name}}</h3>
+                        </div>
+                        <div class="card-body">
+                            <img src="assets/cof1.jpg" width="100" height="100" />
+                        </div>
+                        <div class="card-footer">
+                            <!-- {{product.Price}} -->
+                            <br />
+                            <input type="button" value="Add to cart" (click)="add_to_cart(i)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+        <hr />
+        <div class="container">
+            <h2>Cart Items</h2>
+            <!-- <div class="card-columns row">
+                <div class="card col-md-4" *ngFor="let item of productList;let j=index;">
+                    <div class="card-body">
+                        <!-- {{item.Name}}
+                        <!-- <img src="item.Photo" width="100px" height="100px" /> -->
+                        <!-- {{item.Price}} --> 
+                        <!-- <input type="button" value="Remove" (click)="remove_cart(j)" />
+                    </div>
+                </div>
+            </div> --> 
+        </div>
+
+        <!-- <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator><mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true" [length]="totalSize"
+  [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
+</mat-paginator> -->
+
+
+
+<mat-paginator [length]="productList.length" [pageSize]="pageSize" 
+   (page)="pageEvent = getPaginatorData($event)">
+</mat-paginator> 
+
     </div>
 
-  <!-- <footer></footer> -->
-  </div>
+
+
+
+    <!-- Weight Column -->
+
+
+    <div class="footer">
+        <p class="f1" style="text-align:center;">Kanu Priya © 2021 Copyright: MDBootstrap.com</p>
+    </div>
+
+    <!-- <footer></footer> -->
+</div>

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {CanActivate, Routes, RouterModule } from '@angular/router';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 // import { RegisterComponent } from './components/register/register.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
-  { path: 'login', component: LogInComponent },
+  { path: 'login', component: LogInComponent , canActivate:[]},
    { path: 'product-list', component: ProductListComponent }
 ];
 @NgModule({

@@ -21,7 +21,7 @@ export class LogInComponent {
 
  ngOnInit(){
 sessionStorage.removeItem('person');
-  this.loginFormControl.setValue('kanu.priya1@ibm.com')
+ // this.loginFormControl.setValue('kanu.priya1@ibm.com')
  }
  //value="kanu.priya1@ibm.com"
 

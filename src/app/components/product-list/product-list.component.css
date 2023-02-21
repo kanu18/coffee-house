@@ -28,6 +28,7 @@
     flex-grow: 0;
     background: #039be5;
     padding: 14px 25px;
+    text-align: right;
   }
   .content{
     flex-shrink: 1;

@@ -14,19 +14,22 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { LogInComponent } from './components/log-in/log-in.component';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './components/cart/cart.component';
+
 
 // import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
-    LogInComponent, AppComponent, ProductListComponent
+    LogInComponent, AppComponent, ProductListComponent, CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,HttpClientModule,
     FormsModule,
     FlexLayoutModule
   ],
