@@ -10,3 +10,14 @@
 .example-form{
     margin-top: 30px;
 }
+
+.invalid-feedback{
+    color: red;
+}
+
+.btn{
+    margin-right: 10px;
+}
+.form-group{
+    margin-bottom: 30px;
+}

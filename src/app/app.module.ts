@@ -16,13 +16,14 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './components/cart/cart.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 
 // import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
-    LogInComponent, AppComponent, ProductListComponent, CartComponent
+    LogInComponent, AppComponent, ProductListComponent, CartComponent, ProductDetailComponent
   ],
   imports: [
     BrowserModule,

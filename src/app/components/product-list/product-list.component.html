@@ -1,14 +1,17 @@
 <!-- <header>logged in person :::</header> -->
 <div class="container">
     <div class="header">
-        Welcome {{loggedValue}}
+       Welcome {{loggedValue}}  
+       <button (click)="onClickCart()" >Cart</button> {{cartAddedProduct.length}}
+        <!-- <app-cart-list  class="container"></app-cart-list>  -->
     </div>
     <div class="content">
-         <div class="row">
-    <app-cart-list class="container"></app-cart-list></div>
+        <div class="row">
+           
+        </div>
 
 
-           <!-- <div class="column" style="background-color:#aaa;border-style: solid; margin-right: 30px;"
+        <!-- <div class="column" style="background-color:#aaa;border-style: solid; margin-right: 30px;"
                 *ngFor="let item of myData[0].columns">
                 <img src="assets/cof1.jpg" class="imgsrc">
                 <h2>{{item.label}}</h2>
@@ -18,24 +21,24 @@
         <!-- <div class="column" *ngFor="let item of productList">{{item.blend_name}}</div> -->
 
         <!-- <div class="container"> -->
-            <h2>Products</h2>
-            <div class="abc">
-                <div class="cards-deck row">
-                    <div class="card col-md-4" *ngFor="let product of productList;let i=index;">
-                        <div class="card-title">
-                            <h3>{{product.blend_name}}</h3>
-                        </div>
-                        <div class="card-body">
-                            <img src="assets/cof1.jpg" width="100" height="100" />
-                        </div>
-                        <div class="card-footer">
-                            <!-- {{product.Price}} -->
-                            <br />
-                            <input type="button" value="Add to cart" (click)="add_to_cart(i)" />
-                        </div>
+        <h2>Products</h2>
+        <div class="abc">
+            <div class="cards-deck row" style="max-width: 40%;">
+                <div class="card" *ngFor="let product of productList;let i=index;">
+                    <div class="card-title col-sm-2">
+                       <a [routerLink]=""  (click)="onGoToProd(product.id)"><h3>{{product.blend_name}}</h3></a>
+                    </div>
+                    <div class="card-body col-sm-2">
+                        <img src="assets/cof1.jpg" width="100" height="100" />
+                    <div class="" style="float: right;">
+                        <!-- {{product.Price}} -->
+                        <br />
+                        <input type="button" value="Add to cart" (click)="add_to_cart(product.id)" />
                     </div>
                 </div>
+                </div>
             </div>
+        </div>
         <!-- </div> -->
         <hr />
         <div class="container">
@@ -45,11 +48,11 @@
                     <div class="card-body">
                         <!-- {{item.Name}}
                         <!-- <img src="item.Photo" width="100px" height="100px" /> -->
-                        <!-- {{item.Price}} --> 
-                        <!-- <input type="button" value="Remove" (click)="remove_cart(j)" />
+            <!-- {{item.Price}} -->
+            <!-- <input type="button" value="Remove" (click)="remove_cart(j)" />
                     </div>
                 </div>
-            </div> --> 
+            </div> -->
         </div>
 
         <!-- <mat-paginator #paginator
@@ -59,13 +62,12 @@
   [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
 </mat-paginator> -->
 
-
-
-<mat-paginator [length]="productList.length" [pageSize]="pageSize" 
-   (page)="pageEvent = getPaginatorData($event)">
-</mat-paginator> 
-
     </div>
+
+
+    <mat-paginator [length]="50" [pageSize]="pageSize">
+    </mat-paginator>
+
 
 
 
