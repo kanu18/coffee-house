@@ -23,7 +23,7 @@ export class ProductDetailComponent {
   // this.prodService.getProductList().subscribe((data) => {
   //   console.log('testtt dataa', data)
   // })
-  this.valueToShow = sessionStorage.getItem("selectedProd");
+  this.valueToShow = JSON.parse(sessionStorage.getItem("selectedProd"));
  // JSON.parse(this.valueToShow);
   this.getProductList();
   this.getApiresult();
@@ -54,9 +54,9 @@ console.log('test proddd', this.productList)
   }
 
   getDetailsPage(id){
-    let selectedProd = this.productList.find((item) =>  item.id == id);
-    console.log('test namee', this.productList[id])
-    console.log('sv', selectedProd)
+    // let selectedProd = this.productList.find((item) =>  item.id == id);
+    // console.log('test namee', this.productList[id])
+    //console.log('sv', selectedProd)
   }
 
 }

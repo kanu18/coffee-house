@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class CartComponent implements OnInit {
 
   public count:number = 0;
+  public priceCount: number = 0;
   private isOpen:boolean =false;
   public previewFlag:boolean = false;
  private inVoiceNo :number;
@@ -21,15 +22,32 @@ export class CartComponent implements OnInit {
 
   }
 
+
+
   ngOnInit() {
-    console.log('test sesisonn', JSON.parse(sessionStorage.getItem('itemsCart')));
+
+   // console.log('test sesisonn', JSON.parse(sessionStorage.getItem('itemsCart')));
+   console.log('test45678', JSON.parse(sessionStorage.getItem("itemsCart")));
+   this.testdata =  JSON.parse(sessionStorage.getItem("itemsCart"));
+ 
+   this.testdata.forEach(val => {
+    val['price'] = 250;
+   this.priceCount += parseInt(val['price']);
+   });
+  //  this.testdata.forEach((val) => {
+  //   console.log('vallll', val.price)
+  //   count = count+  parseInt(val.price)})
+
+  const lenghtArr = this.testdata.length;
+  console.log('lengtharr', lenghtArr);
+ // this.count = lenghtArr * 250;
     this.prodService.getCart().subscribe((data) => {
       console.log('cart data updated', data)
       this.cartItems = data;
       console.log('cart data updated 2', this.cartItems)
     })
 
-this.testdata = this.cartItems;
+//this.testdata = this.cartItems;
     //  this.cartService.getCountIn().subscribe((counttyui)=>{
     //   console.log('gfhj', counttyui)
     //   this.count += 1;
@@ -39,6 +57,10 @@ this.testdata = this.cartItems;
   }
 
  
+
+  checkOut(){
+   // this
+  }
   
 
   public openCart():void{

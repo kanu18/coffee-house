@@ -76,7 +76,7 @@ export class ProductListComponent {
 
     let selectedProd = this.productList.find((item) => item.id == index);
     console.log('test namee', this.productList[index])
-    sessionStorage.setItem('selectedProd', selectedProd);
+    sessionStorage.setItem('selectedProd', JSON.stringify(selectedProd));
     // sessionStorage.setItem('selectedProd', selectedProd.blend_name);
 
 
@@ -125,7 +125,7 @@ export class ProductListComponent {
     console.log('addedProd', addedProd);
     this.cartAddedProduct.push(addedProd);
     console.log('cartaddedproo', this.cartAddedProduct.length, this.cartAddedProduct);
-    sessionStorage.setItem('itemsCart', this.cartAddedProduct)
+    sessionStorage.setItem('itemsCart', JSON.stringify(this.cartAddedProduct))
   //  this.productService.updateCart(this.cartAddedProduct);
 
   }

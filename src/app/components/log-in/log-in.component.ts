@@ -4,6 +4,8 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import { LogInService } from './log-in.service';
 // import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from '../../auth/auth.service';
+
 // import Validation from './utils/validation';
 
 
@@ -22,7 +24,8 @@ export class LogInComponent {
 
   constructor(
     private router: Router,
-    private logInService: LogInService, private formBuilder: FormBuilder
+    private logInService: LogInService, private formBuilder: FormBuilder,
+    public authService: AuthService
  ){}
 
  ngOnInit(){
@@ -45,7 +48,7 @@ this.form = this.formBuilder.group(
   return this.form.controls;
 }
 
-
+submitEmail: boolean = false;
  onSubmit(): void {
   this.submitted = true;
 
@@ -54,13 +57,23 @@ this.form = this.formBuilder.group(
   }
 
 
+  this.authService.loginCheck(this.form.value.email)
+  .subscribe( data => { 
+     console.log("Is Login Success: " + data); 
+
+    if(data) {
+      this.submitEmail = true;
+      this.router.navigate(['/product-list']);
+  }; 
+
+  });
   let val: any = this.form.controls['email'].value;
   sessionStorage.setItem('person', val)
   
-  this.router.navigate(['product-list']);
+ // this.router.navigate(['product-list']);
   this.logInService.updateLoggedIn(val)
   console.log('test167', JSON.stringify(this.form.value, null, 2));
-}
+} 
 
 onReset(): void {
   this.submitted = false;
